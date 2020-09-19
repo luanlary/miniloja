@@ -12,7 +12,15 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            LimparMensagensValidacao();
+            if (Id <= 0)
+                AdcionarCritica("O campo Id deve ser preeenchido!");
+
+            if (Quantidade <= 0)
+                AdcionarCritica("O campo quantidade deve ser informado!");
+
+            if (ProdutoId <= 0)
+                AdcionarCritica("O campo produto deve ser informado!");
         }
     }
 }

@@ -20,7 +20,22 @@ namespace QuickBuy.Dominio.Entidades
 
         public override void Validate()
         {
-            throw new NotImplementedException();
+            LimparMensagensValidacao();
+            if (Id <= 0)
+                AdcionarCritica("O campo Id deve ser preeenchido!");
+
+            if (string.IsNullOrWhiteSpace(Nome))
+                AdcionarCritica("O Campo nome deve ser preenchido!");
+
+            if (string.IsNullOrWhiteSpace(Email))
+                AdcionarCritica("O campo email deve ser preenchido!");
+
+            if (string.IsNullOrWhiteSpace(Sobrenome))
+                AdcionarCritica("O campo descrição deve ser preenchido!");
+
+            if (string.IsNullOrWhiteSpace(Senha))
+                AdcionarCritica("O campo Senha deve ser preenchido!");
+
         }
     }
 }
