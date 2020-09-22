@@ -25,10 +25,7 @@ namespace QuickBuy.Repositorio.Config
                 .HasMaxLength(100);
             builder.Property(p => p.Estado)
                 .IsRequired()
-                .HasMaxLength(50);
-            builder.Property(p => p.FormaPagamento)
-                .IsRequired()
-                .HasMaxLength(50);
+                .HasMaxLength(50);                
             builder.Property(p => p.FormaPagamentoId).IsRequired();
             builder.Property(p => p.NumeroEndereco).IsRequired();
 
