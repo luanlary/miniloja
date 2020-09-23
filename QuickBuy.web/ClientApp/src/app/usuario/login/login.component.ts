@@ -10,8 +10,6 @@ import { Usuario } from "../../Modelo/usuario";
 export class LoginComponent {
 
   public usuario;
-  public usuarioAutenticado: boolean;
-  public usuarios = ["usuario1", "usuario2", "usuario3"];
 
   constructor()
   {
@@ -19,7 +17,7 @@ export class LoginComponent {
   } 
   entrar() {
     if (this.usuario.email == 'luanlary.bg@gmail.com' && this.usuario.senha == 'Sidi4124#') {
-      this.usuarioAutenticado = true;
+      
     }
   }
 }
