@@ -41,6 +41,9 @@
     <None Remove="ClientApp\src\app\Modelo\usuario.ts" />
     <None Remove="ClientApp\src\app\produto\produtos.component.ts" />
     <None Remove="ClientApp\src\app\produto\produtos.components.ts" />
+    <None Remove="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.css" />
+    <None Remove="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.html" />
+    <None Remove="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.ts" />
     <None Remove="ClientApp\src\app\usuario\login\login.component.ts" />
   </ItemGroup>
 
@@ -49,13 +52,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="config.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <TypeScriptCompile Include="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.css">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.html">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\usuario\cadastro\" />
+    <Content Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
