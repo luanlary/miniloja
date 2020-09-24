@@ -12,6 +12,12 @@
     <BuildServerSideRenderer>false</BuildServerSideRenderer>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>false</Optimize>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <DefineConstants></DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
@@ -29,6 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\servicos\usuario\produto.servico.ts" />
+    <None Remove="ClientApp\servicos\usuario\usuario.servico.ts" />
     <None Remove="ClientApp\src\app\autorizacao\guarda.ts" />
     <None Remove="ClientApp\src\app\Modelo\usuario.ts" />
     <None Remove="ClientApp\src\app\produto\produtos.component.ts" />
@@ -76,5 +84,21 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
 
 </Project>
