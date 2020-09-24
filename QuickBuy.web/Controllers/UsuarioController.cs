@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using QuickBuy.Dominio.Contratos;
 using QuickBuy.Dominio.Entidades;
+using QuickBuy.Repositorio.Repositorios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +14,13 @@ namespace QuickBuy.web.Controllers
     [ApiController]
     public class UsuarioController: ControllerBase
     {
+        private readonly IUsuarioRepositorio _usuarioRepository;
+
+        public UsuarioController(IUsuarioRepositorio usuarioRepositorio)
+        {
+            this._usuarioRepository = usuarioRepositorio;
+        }
+        
         [HttpGet]
         public ActionResult Get()
         {
@@ -44,9 +54,11 @@ namespace QuickBuy.web.Controllers
         {
             try
             {
-                if(usuario.Email == "luanlary.bg@gmail.com" && usuario.Senha == "Sidi4124#")
+                var usuarioRetorno = this._usuarioRepository.ObterPorEmailSenha(usuario.Email, usuario.Senha);
+
+                if(usuarioRetorno != null)
                 {
-                    return Ok(usuario);
+                    return Ok(usuarioRetorno);
                 }
                 else
                 {

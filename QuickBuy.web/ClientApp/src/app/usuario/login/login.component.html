@@ -39,7 +39,10 @@
               A senha deve ser conter 8 caracteres!
               </div>
           </div>
-    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">Entrar</button>
+          <button class="btn btn-primary btn-block" type="submit" (click)="entrar()" [disabled]="ativarSpinner">
+            Entrar
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpinner"></span>
+          </button>
     <div class="alert alert-danger" *ngIf="mensagem">
       {{mensagem}}
     </div>
