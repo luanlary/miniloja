@@ -2,7 +2,8 @@ import { Component } from "@angular/core"
 
 @Component({
   selector: "app-produto",
-  template:"<html><body>{{obterNome()}}</body></html>",
+  template: "./produtos.component.html",
+  styleUrls: ["produtos.component.css"]
 })
 
 export class ProdutoComponent {

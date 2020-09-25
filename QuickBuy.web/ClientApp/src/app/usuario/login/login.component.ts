@@ -11,7 +11,7 @@ import { UsuarioServico } from "../../../../servicos/usuario/usuario.servico";
 
 export class LoginComponent implements OnInit {
 
-  public usuario;
+  public usuario: Usuario;
   public returnUrl: string;
   public mensagem: string
   private ativarSpinner: boolean;

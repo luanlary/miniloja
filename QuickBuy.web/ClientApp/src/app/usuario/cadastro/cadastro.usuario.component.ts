@@ -16,24 +16,39 @@ import { ActivatedRoute, Router } from "@angular/router";
 export class CadastroUsuarioComponent implements OnInit {
 
   public usuario: Usuario;
+  public returnUrl: string;
+  public mensagem: string
+  public confirmasenha: string;
+  private ativarSpinner: boolean;
 
-  constructor(private usuarioServico: UsuarioServico) {
+  constructor(private router: Router, private activatedRouter: ActivatedRoute,
+    private usuarioServico: UsuarioServico) {
 
   }
 
   ngOnInit(): void {
     this.usuario = new Usuario();
+    this.returnUrl = this.activatedRouter.snapshot.queryParams['returnUrl'];  
 
   }
 
   public cadastrar() {
+    this.ativarSpinner = true;
+    if (this.usuario.senha != this.confirmasenha) {
+      this.mensagem = "A senha não correponde a confirmação!";
+      return;
+    }
+      
+      
+    
     this.usuarioServico.cadastrarUsuario(this.usuario)
       .subscribe(
         usuario_json => {
-
+          console.log(usuario_json)
         },
         err => {
-          err.errors
+          this.mensagem = err.error;
+          this.ativarSpinner = false;
         }
       );
   }

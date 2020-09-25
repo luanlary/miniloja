@@ -38,7 +38,10 @@
     <None Remove="ClientApp\servicos\usuario\produto.servico.ts" />
     <None Remove="ClientApp\servicos\usuario\usuario.servico.ts" />
     <None Remove="ClientApp\src\app\autorizacao\guarda.ts" />
+    <None Remove="ClientApp\src\app\Modelo\Produto.ts" />
     <None Remove="ClientApp\src\app\Modelo\usuario.ts" />
+    <None Remove="ClientApp\src\app\produto\produtos.component.css" />
+    <None Remove="ClientApp\src\app\produto\produtos.component.html" />
     <None Remove="ClientApp\src\app\produto\produtos.component.ts" />
     <None Remove="ClientApp\src\app\produto\produtos.components.ts" />
     <None Remove="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.css" />
@@ -52,6 +55,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\produto\produtos.component.css" />
+    <TypeScriptCompile Include="ClientApp\src\app\produto\produtos.component.html" />
     <TypeScriptCompile Include="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.css">
       <SubType>Code</SubType>
     </TypeScriptCompile>
