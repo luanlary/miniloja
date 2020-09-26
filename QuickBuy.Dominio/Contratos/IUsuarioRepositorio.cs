@@ -8,5 +8,6 @@ namespace QuickBuy.Dominio.Contratos
     public interface IUsuarioRepositorio: IBaseRepositorio<Usuario>
     {
         Usuario ObterPorEmailSenha(string email, string senha);
+        Usuario ObterPorEmail(string email);
     }
 }

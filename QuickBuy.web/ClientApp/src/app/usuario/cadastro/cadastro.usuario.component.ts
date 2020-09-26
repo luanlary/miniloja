@@ -20,6 +20,7 @@ export class CadastroUsuarioComponent implements OnInit {
   public mensagem: string
   public confirmasenha: string;
   private ativarSpinner: boolean;
+  public usuarioCadastrado: boolean;
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute,
     private usuarioServico: UsuarioServico) {
@@ -44,11 +45,15 @@ export class CadastroUsuarioComponent implements OnInit {
     this.usuarioServico.cadastrarUsuario(this.usuario)
       .subscribe(
         usuario_json => {
+          this.usuarioCadastrado = true;
+          this.mensagem = "";
+          this.ativarSpinner = false;
           console.log(usuario_json)
         },
         err => {
           this.mensagem = err.error;
           this.ativarSpinner = false;
+          this.usuarioCadastrado = false;          
         }
       );
   }

@@ -67,7 +67,7 @@
     </div>
 
   </div>
-  <button class="btn btn-primary btn-block" type="submit" (click)="cadastrar()" [disabled]="ativarSpinner">
+  <button class="btn btn-primary btn-block col-md-6" type="submit" (click)="cadastrar()" [disabled]="ativarSpinner">
     Gravar
     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpinner"></span>
   </button>
@@ -89,5 +89,7 @@
 <div class="alert alert-danger" *ngIf="mensagem">
   {{mensagem}}
 </div>
-
+<div class="alert alert-success" *ngIf="usuarioCadastrado">
+  Usuário cadastrado com sucesso! <a class="alert-link" [routerLink]='["/entrar"]'>Clique aqui</a> para entrar no sistema!
+</div>
 
