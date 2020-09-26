@@ -11,7 +11,22 @@ import { Produto } from "../Modelo/Produto";
 export class ProdutoComponent implements OnInit {
 
   public produto: Produto;
+  public arquivoSelecionado: File;
   constructor(private produtoServico: ProdutoServico) {
+
+  }
+
+  public inputChange(files: FileList) {
+    this.arquivoSelecionado = files.item(0);
+    this.produtoServico.enviarArquivo(this.arquivoSelecionado)
+      .subscribe(
+        arquivo_json => {
+          console.log(arquivo_json);
+      },
+      e => {
+        console.log(e.error);
+      }
+    );
 
   }
   

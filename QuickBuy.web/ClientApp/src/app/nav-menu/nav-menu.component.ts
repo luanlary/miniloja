@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioServico } from '../../../servicos/usuario/usuario.servico';
+import { Usuario } from '../Modelo/usuario';
 
 @Component({
   selector: 'app-nav-menu',
@@ -11,6 +12,10 @@ export class NavMenuComponent {
 
   constructor(private router: Router, private usuarioServico: UsuarioServico) {
 
+  }
+
+  get usuario() {
+    return this.usuarioServico.usuario;
   }
 
   isExpanded = false;

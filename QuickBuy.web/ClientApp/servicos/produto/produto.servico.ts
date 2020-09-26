@@ -26,10 +26,15 @@ export class ProdutoServico implements OnInit {
     this.produtos = [];
   }
 
-  public cadastrar(produto: Produto): Observable<Produto> {
+  public enviarArquivo(arquivoSelecionado: File): Observable<boolean> {
 
+    const formData: FormData = new FormData();
+    FormData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
+    return this.http.post<boolean>(this._baseUrl + "api/produto/enviarArquivo", formData);
+  }
+
+  public cadastrar(produto: Produto): Observable<Produto> {  
     return this.http.post<Produto>(this._baseUrl + "api/produto/cadastrar", JSON.stringify(produto), { headers: this.headers });
-    
   }
   public salvar(produto: Produto): Observable<Produto> {
 
