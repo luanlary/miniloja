@@ -29,7 +29,7 @@ export class ProdutoServico implements OnInit {
   public enviarArquivo(arquivoSelecionado: File): Observable<boolean> {
 
     const formData: FormData = new FormData();
-    FormData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
+    formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name);
     return this.http.post<boolean>(this._baseUrl + "api/produto/enviarArquivo", formData);
   }
 
