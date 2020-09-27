@@ -16,10 +16,13 @@ namespace QuickBuy.Repositorio.Config
                 .Property(p => p.Nome)
                 .IsRequired()
                 .HasMaxLength(50);
-            builder.Property(p => p.Preco).IsRequired();
+            builder.Property(p => p.Preco)
+                .IsRequired()
+                .HasColumnType("decimal(19,4)");
             builder.Property(p => p.Descricao)
                 .IsRequired()
                 .HasMaxLength(400);
+            builder.Property(p => p.NomeArquivo);                               
 
         }
     }

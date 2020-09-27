@@ -22,7 +22,7 @@ namespace QuickBuy.web.Controllers
         }
         
         [HttpGet]
-        public ActionResult Get()
+        public IActionResult Get()
         {
             try
             {
@@ -36,7 +36,7 @@ namespace QuickBuy.web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] Usuario usuario)
+        public IActionResult Post([FromBody] Usuario usuario)
         {
             try
             {
@@ -55,7 +55,7 @@ namespace QuickBuy.web.Controllers
         }
 
         [HttpPost("VerificarUsuario")]
-        public ActionResult VerificarUsuario([FromBody] Usuario usuario)
+        public IActionResult VerificarUsuario([FromBody] Usuario usuario)
         {
             try
             {

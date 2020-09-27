@@ -1,9 +1,12 @@
 <h1 class="h4 titulo">Cadastro de Produtos</h1>
 <label for="inputNome" class="sr-only">Nome</label>
 <input type="text" id="inputNome"
-       name="nomeProduto"
+       name="nome"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+           [ngClass]="{
+           'is-invalid': nome.invalid && (nome.dirty || nome.touched),
+           'is-valid': nome.valid && (nome.dirty || nome.touched)
+           }"           
        placeholder="Nome do Produto"
        [(ngModel)]="produto.nome"
        #nome="ngModel"
@@ -17,7 +20,10 @@
 <input type="text" id="inputDescricao"
        name="descricaoProduto"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+           'is-invalid': descricao.invalid && (descricao.dirty || descricao.touched),
+           'is-valid': descricao.valid && (descricao.dirty || descricao.touched)
+           }"
        placeholder="Descriceo do Produto"
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
@@ -34,6 +40,10 @@
          class="form-control mb-2 col-md-2"
          placeholder="Preço"
          [(ngModel)]="produto.preco"
+         [ngClass]="{
+           'is-invalid':preco.invalid && (preco.dirty || preco.touched),
+           'is-valid': preco.valid && (preco.dirty || preco.touched)
+           }"
          #preco="ngModel"
          required />
   <div class="invalid-feedback mb-2" *ngIf="preco.invalid && (preco.dirty || preco.touched)">
@@ -48,4 +58,10 @@
       <label for="inputFile" class="custom-file-label">Escolha uma foto</label>
     </div>
   </div>
-<button class="btn btn-primary" (click)="cadastrar">Cadastrar</button>
+  <button class="btn btn-primary mb-2" (click)="cadastrar()" [disabled]="ativarSpiner">
+    Cadastrar
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpiner"></span>
+  </button>
+<div class="alert alert-danger col-md-4" *ngIf="mensagem">
+  {{mensagem}}
+</div>

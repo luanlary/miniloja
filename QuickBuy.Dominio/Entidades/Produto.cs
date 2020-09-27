@@ -11,12 +11,11 @@ namespace QuickBuy.Dominio.Entidades
         public string Descricao { get; set; }
         public decimal Preco { get; set; }
 
+        public string NomeArquivo { get; set; }
+
         public override void Validate()
         {
             LimparMensagensValidacao();
-            if (Id <=0)            
-                AdcionarCritica("O campo Id deve ser preeenchido!");
-
             if (string.IsNullOrWhiteSpace(Nome))
                 AdcionarCritica("O Campo nome deve ser preenchido!");
 
@@ -26,6 +25,11 @@ namespace QuickBuy.Dominio.Entidades
             if (Preco <= 0)
                 AdcionarCritica("O campo preço deve ser informado!");
             
+        }
+
+        public string ObterMensagensValidacao()
+        {
+            return string.Join(". ", MensagemValidacao);
         }
     }
 }

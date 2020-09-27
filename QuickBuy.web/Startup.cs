@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,8 @@ namespace QuickBuy.web
             {
                 option.UseLazyLoadingProxies().UseMySql(conectionString, m => m.MigrationsAssembly("QuickBuy.Repositorio"));
             });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
             services.AddScoped<IProdutoRepositorio, ProdutoRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
