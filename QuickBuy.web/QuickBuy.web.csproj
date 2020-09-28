@@ -39,6 +39,8 @@
     <None Remove="ClientApp\servicos\usuario\produto.servico.ts" />
     <None Remove="ClientApp\servicos\usuario\usuario.servico.ts" />
     <None Remove="ClientApp\src\app\autorizacao\guarda.ts" />
+    <None Remove="ClientApp\src\app\loja\carrinho\loja.carrinho.component.ts" />
+    <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts" />
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
     <None Remove="ClientApp\src\app\loja\produto\loja.produto.component.ts" />
     <None Remove="ClientApp\src\app\Modelo\Produto.ts" />

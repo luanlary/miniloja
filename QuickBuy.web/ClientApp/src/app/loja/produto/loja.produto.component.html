@@ -3,9 +3,9 @@
     <div class="col-md-6"> <img class="card-img-top" src="../../../../../arquivos/{{produto.nomeArquivo}}" style="width:200px; height:200px;" /></div>
     <div class="col-md-6">
       <div class="row h4 mb-2 titulo">{{produto.descricao}}</div>
-      <div class="row h4 mb-2">R$ {{produto.preco}}</div>
+      <div class="row h4 mb-2">{{produto.preco | number : '1.0-2'}}</div>
       <div class="row">
-        <button class="btn btn-danger btn-lg">Comprar</button>
+        <button class="btn btn-danger btn-lg" (click)="comprar(produto)">Comprar</button>
       </div>
     </div>
   </div>

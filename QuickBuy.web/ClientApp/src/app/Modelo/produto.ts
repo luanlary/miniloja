@@ -3,6 +3,11 @@ export class Produto {
   id: Number;
   nome: string;
   descricao: string;
-  preco: Number;
-  nomeArquivo: string
+  preco: number;
+  precoOriginal: number;
+  nomeArquivo: string;
+  quantidade: number;
+
+
+
 }
