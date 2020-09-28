@@ -17,6 +17,7 @@ import { ProdutoServico } from '../../servicos/produto/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
 import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
+import { LojaCompraSucesso } from './loja/sucesso/loja.compra.sucesso.component';
 import { LojaEfetivarComponent } from './loja/efetivar/loja.efetivar.component';
 import { TruncateModule } from 'ng2-truncate';
 
@@ -34,6 +35,7 @@ import { TruncateModule } from 'ng2-truncate';
     LojaPesquisaComponent,
     LojaProdutoComponent,
     LojaEfetivarComponent,
+    LojaCompraSucesso,
     
     
   ],
@@ -51,6 +53,7 @@ import { TruncateModule } from 'ng2-truncate';
       { path: 'pesquisar-produto', component: PesquisaProdutoComponent, canActivate: [GuardaRotas] },
       { path: 'loja-produto', component: LojaProdutoComponent },
       { path: 'loja-efetivar', component: LojaEfetivarComponent, canActivate: [GuardaRotas] },
+      { path: 'compra-realizada-sucesso', component: LojaCompraSucesso },
 
       
     ])

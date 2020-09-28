@@ -44,6 +44,9 @@
     <None Remove="ClientApp\src\app\loja\efetivar\loja.efetivar.component.ts" />
     <None Remove="ClientApp\src\app\loja\pesquisa\loja.pesquisa.component.ts" />
     <None Remove="ClientApp\src\app\loja\produto\loja.produto.component.ts" />
+    <None Remove="ClientApp\src\app\loja\sucesso\loja.compra.sucesso.component.css" />
+    <None Remove="ClientApp\src\app\loja\sucesso\loja.compra.sucesso.component.html" />
+    <None Remove="ClientApp\src\app\loja\sucesso\loja.compra.sucesso.component.ts" />
     <None Remove="ClientApp\src\app\Modelo\ItemPedido.ts" />
     <None Remove="ClientApp\src\app\Modelo\Pedido.ts" />
     <None Remove="ClientApp\src\app\Modelo\Produto.ts" />
@@ -64,6 +67,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\loja\sucesso\loja.compra.sucesso.component.css">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\loja\sucesso\loja.compra.sucesso.component.html">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\produto\produtos.component.css" />
     <TypeScriptCompile Include="ClientApp\src\app\produto\produtos.component.html" />
     <TypeScriptCompile Include="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.css">
