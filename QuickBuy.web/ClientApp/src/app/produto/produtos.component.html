@@ -27,10 +27,14 @@
        placeholder="Descriceo do Produto"
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
-       required />
+       required
+       minlength="40"/>
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
   <div *ngIf="descricao.errors.required">
     Informe uma descrição válido para o produto!
+  </div>
+  <div *ngIf="descricao.errors.minlength">
+    O campo deve possuir no mínimo 40 carácteres!
   </div>
 </div>
 
@@ -54,14 +58,17 @@
   <div class="input-group mb-2">
     <div class="custom-file col-md-4">
       <input type="file"
-             class="custom-file-input" id="inputFile" [(ngModel)]="produto.nomeArquivo" #nomeArquivo ="ngModel" (change)="inputChange($event.target.files)"/>
+             class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)"/>
       <label for="inputFile" class="custom-file-label">Escolha uma foto</label>
     </div>
   </div>
-  <button class="btn btn-primary mb-2" (click)="cadastrar()" [disabled]="ativarSpiner">
-    Cadastrar
-    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpiner"></span>
-  </button>
+  <div class="form-inline">
+    <button class="btn btn-primary" (click)="cadastrar()" [disabled]="ativarSpiner">
+      Cadastrar
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativarSpiner"></span>
+    </button>
+    <button class="btn btn-secondary" (click)="cancelar()" style="margin-left:4px">Cancelar</button>
+  </div>
 <div class="alert alert-danger col-md-4" *ngIf="mensagem">
   {{mensagem}}
 </div>

@@ -14,6 +14,9 @@ import { UsuarioServico } from '../../servicos/usuario/usuario.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
+import { LojaPesquisaComponent } from './loja/pesquisa/loja.pesquisa.component';
+import { LojaProdutoComponent } from './loja/produto/loja.produto.component';
+import { TruncateModule } from 'ng2-truncate';
 
 
 
@@ -27,6 +30,8 @@ import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.co
     LoginComponent,
     CadastroUsuarioComponent,
     PesquisaProdutoComponent,
+    LojaPesquisaComponent,
+    LojaProdutoComponent,
     
     
     
@@ -35,6 +40,7 @@ import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.co
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    TruncateModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
 //      { path: 'produto', component: ProdutoComponent, canActivate: [GuardaRotas] },
@@ -42,6 +48,7 @@ import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.co
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
       { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
+      { path: 'loja-produto', component: LojaProdutoComponent },
 
       
     ])

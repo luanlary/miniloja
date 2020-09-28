@@ -67,4 +67,10 @@ export class ProdutoComponent implements OnInit {
     );
   }
 
-}
+  public cancelar() {
+    this.produto = new Produto();
+    sessionStorage.setItem("produtoSessao", "");
+    this.router.navigate(['/pesquisar-produto']);
+  }
+
+ }
