@@ -41,6 +41,7 @@
     <None Remove="ClientApp\src\app\autorizacao\guarda.ts" />
     <None Remove="ClientApp\src\app\Modelo\Produto.ts" />
     <None Remove="ClientApp\src\app\Modelo\usuario.ts" />
+    <None Remove="ClientApp\src\app\produto\pesquisa\pesquisa.produto.component.ts" />
     <None Remove="ClientApp\src\app\produto\produtos.component.css" />
     <None Remove="ClientApp\src\app\produto\produtos.component.html" />
     <None Remove="ClientApp\src\app\produto\produtos.component.ts" />

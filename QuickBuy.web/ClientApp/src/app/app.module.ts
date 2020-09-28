@@ -13,6 +13,7 @@ import { GuardaRotas } from './autorizacao/guarda';
 import { UsuarioServico } from '../../servicos/usuario/usuario.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
+import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
 
 
 
@@ -24,7 +25,8 @@ import { ProdutoServico } from '../../servicos/produto/produto.servico';
     HomeComponent,
     ProdutoComponent,
     LoginComponent,
-    CadastroUsuarioComponent
+    CadastroUsuarioComponent,
+    PesquisaProdutoComponent,
     
     
     
@@ -39,6 +41,7 @@ import { ProdutoServico } from '../../servicos/produto/produto.servico';
       { path: 'produto', component: ProdutoComponent },
       { path: 'entrar', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent },
+      { path: 'pesquisar-produto', component: PesquisaProdutoComponent },
 
       
     ])

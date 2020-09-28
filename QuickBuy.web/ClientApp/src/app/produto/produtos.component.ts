@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core"
+import { Router } from "@angular/router";
 import { ProdutoServico } from "../../../servicos/produto/produto.servico";
 import { Produto } from "../Modelo/Produto";
 
@@ -15,7 +16,7 @@ export class ProdutoComponent implements OnInit {
   public ativarSpiner: boolean;
   public mensagem: string;
 
-  constructor(private produtoServico: ProdutoServico) {
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
 
   }
 
@@ -50,7 +51,7 @@ export class ProdutoComponent implements OnInit {
           
           this.ativarSpiner = false;
           this.mensagem = "Produto salvo com sucesso!";
-          this.produto = new Produto();
+          this.router.navigate(["/pesquisar-produto"]);
         },
         err => {
           console.log(err.error);

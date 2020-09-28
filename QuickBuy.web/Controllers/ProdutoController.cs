@@ -33,7 +33,7 @@ namespace QuickBuy.web.Controllers
         {
             try
             {
-                return Ok(_produtoRepositorio.ObterTodos());
+                return Json(_produtoRepositorio.ObterTodos());
             } catch (Exception ex)
             {
                 return BadRequest(ex.ToString());
@@ -59,6 +59,25 @@ namespace QuickBuy.web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+        [HttpPost("deletar")]
+        public IActionResult deletar([FromBody] Produto produto)
+        {
+            try
+            {
+
+
+                _produtoRepositorio.Remover(produto);
+                return Json(_produtoRepositorio.ObterTodos());
+
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
 
         [HttpPost("enviarArquivo")]
         public IActionResult enviarArquivo()
