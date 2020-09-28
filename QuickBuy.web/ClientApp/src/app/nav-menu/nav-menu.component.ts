@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioServico } from '../../../servicos/usuario/usuario.servico';
+import { LojaCarrinhoCompras } from '../loja/carrinho/loja.carrinho.component';
 import { Usuario } from '../Modelo/usuario';
 
 @Component({
@@ -8,9 +9,16 @@ import { Usuario } from '../Modelo/usuario';
   templateUrl: './nav-menu.component.html',
   styleUrls: ['./nav-menu.component.css']
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnInit {
+
+  public carrinhoCompras: LojaCarrinhoCompras;
 
   constructor(private router: Router, private usuarioServico: UsuarioServico) {
+
+  }
+
+  ngOnInit(): void {
+    this.carrinhoCompras = new LojaCarrinhoCompras();
 
   }
 
@@ -39,8 +47,12 @@ export class NavMenuComponent {
     return this.usuarioServico.usuario_administrador();
   }
 
-  sair() {
+  public sair() {
     this.usuarioServico.limparSesssao();
     this.router.navigate(["/"]);
+  }
+
+  public temItensCarrinhoCompras(): boolean {
+    return this.carrinhoCompras.temItensCarrinhoCompras();
   }
 }

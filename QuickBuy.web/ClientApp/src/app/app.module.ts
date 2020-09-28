@@ -11,6 +11,7 @@ import { ProdutoComponent } from './produto/produtos.component';
 import { LoginComponent } from './usuario/login/login.component';
 import { GuardaRotas } from './autorizacao/guarda';
 import { UsuarioServico } from '../../servicos/usuario/usuario.servico';
+import { PedidoServico } from '../../servicos/pedido/pedido.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
 import { PesquisaProdutoComponent } from './produto/pesquisa/pesquisa.produto.component';
@@ -54,7 +55,7 @@ import { TruncateModule } from 'ng2-truncate';
       
     ])
   ],
-  providers: [UsuarioServico, ProdutoServico],
+  providers: [UsuarioServico, ProdutoServico, PedidoServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

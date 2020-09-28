@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { PedidoServico } from "../../../../servicos/pedido/pedido.servico";
 import { ProdutoServico } from "../../../../servicos/produto/produto.servico";
+import { UsuarioServico } from "../../../../servicos/usuario/usuario.servico";
+import { ItemPedido } from "../../Modelo/ItemPedido";
+import { Pedido } from "../../Modelo/Pedido";
 import { Produto } from "../../Modelo/Produto";
 import { LojaCarrinhoCompras } from "../carrinho/loja.carrinho.component";
 
@@ -16,7 +20,10 @@ export class LojaEfetivarComponent implements OnInit {
   public produtos: Produto[];
   public Total: number;
 
-  constructor(private _produotoServico: ProdutoServico, private router: Router) {
+  constructor(private _produotoServico: ProdutoServico,
+    private router: Router,
+    private _usuarioServico: UsuarioServico,
+    private _pedidoServico: PedidoServico) {
 
   }
 
@@ -50,6 +57,42 @@ export class LojaEfetivarComponent implements OnInit {
   }
   public atualizarTotal() {
     this.Total = this.produtos.reduce((acc, produto) => acc + produto.preco, 0);
+  }
+
+  public efetuarCompra() {
+    let pedido = this.criarPedido();
+    this._pedidoServico.efetuarCompra(pedido)
+      .subscribe(
+        numero_pedido => {
+          sessionStorage.setItem("PedidoId", numero_pedido.toString()); 
+        },
+        e => {
+          console.log(e.errors);
+        }
+      );
+
+
+  }
+
+  public criarPedido(): Pedido {
+    var pedido = new Pedido();
+    pedido.usuarioId = this._usuarioServico.usuario.id;
+    pedido.cep = "04312010";
+    pedido.cidade = "São Paulo";
+    pedido.endereco = "Rua Eduardo Pereira, Vila Guarani";
+    pedido.estado = "São Paulo";
+    pedido.formaPagamentoId = 1;
+    pedido.numeroEndereco = "449";
+
+    this.produtos = this.carrinhoCompras.obterProdutos();
+    for (let p of this.produtos) {
+      var item = new ItemPedido();
+      item.produtoId = p.id;
+      item.quantidade = p.quantidade;
+      pedido.itensPedido.push(item);
+    }
+
+    return pedido;
   }
 
 }

@@ -25,7 +25,7 @@
 
             </ul>
           </li>
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <li class="nav-item" *ngIf="temItensCarrinhoCompras()" [routerLinkActive]='["link-active"]'>
             <a class="nav-link text-dark" [routerLink]='["/loja-efetivar"]'>
               <img src="assets/img/shopping-06-512.png" style="width:32px;height:32px" />
             </a>
