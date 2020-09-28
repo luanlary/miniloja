@@ -33,6 +33,7 @@ export class LojaCarrinhoCompras {
       this.produtos = JSON.parse(produtoLocaStorage);
       this.produtos = this.produtos.filter(p => p.id != produto.id);
       localStorage.setItem("produtoStorage", JSON.stringify(this.produtos));
+    }
   }
 
   public atualizar(produtos: Produto[] ) {

@@ -24,9 +24,12 @@ var LojaCarrinhoCompras = (function () {
         }
     };
     LojaCarrinhoCompras.prototype.removerProduto = function (produto) {
-        this.produtos = JSON.parse(localStorage.getItem("produtoStorage"));
-        this.produtos.splice(this.produtos.indexOf(produto), 1);
-        localStorage.setItem("produtoStorage", JSON.stringify(this.produtos));
+        var produtoLocaStorage = localStorage.getItem("produtoStorage");
+        if (produtoLocaStorage) {
+            this.produtos = JSON.parse(produtoLocaStorage);
+            this.produtos = this.produtos.filter(function (p) { return p.id != produto.id; });
+            localStorage.setItem("produtoStorage", JSON.stringify(this.produtos));
+        }
     };
     LojaCarrinhoCompras.prototype.atualizar = function (produtos) {
         localStorage.setItem("produtoStorage", JSON.stringify(produtos));
