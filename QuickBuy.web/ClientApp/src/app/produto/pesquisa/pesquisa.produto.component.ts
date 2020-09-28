@@ -39,7 +39,7 @@ export class PesquisaProdutoComponent implements OnInit {
 
   public deletarProduto(produto: Produto) {
     var retorno = confirm("Deseja realmente deletar o produto selecionado?");
-    if (retorno) {      
+    if (retorno) {
       this.produtoServico.deletar(produto)
         .subscribe(
           produtos => {
@@ -50,6 +50,16 @@ export class PesquisaProdutoComponent implements OnInit {
           }
         );
     }
+
+  }
+    public editarProduto(produto: Produto) {
+    var retorno = confirm("Deseja realmente editar o produto selecionado?");
+      if (retorno) {
+        sessionStorage.setItem("produtoSessao", JSON.stringify(produto));
+        this.router.navigate(["/produto"]);
+
+    }
+
   }
 
   ngOnInit(): void {

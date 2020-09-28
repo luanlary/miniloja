@@ -18,6 +18,7 @@ export class ProdutoComponent implements OnInit {
 
   constructor(private produtoServico: ProdutoServico, private router: Router) {
 
+
   }
 
   public inputChange(files: FileList) {
@@ -40,7 +41,12 @@ export class ProdutoComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.produto = new Produto();        
+    
+    var produtoSessao = sessionStorage.getItem("produtoSessao");
+    if (produtoSessao)
+      this.produto = JSON.parse(produtoSessao);
+    else
+      this.produto = new Produto();
   }
 
   public cadastrar() {
