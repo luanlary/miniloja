@@ -18,6 +18,7 @@ export class NavMenuComponent {
     return this.usuarioServico.usuario;
   }
 
+
   isExpanded = false;
 
   collapse() {
@@ -31,6 +32,11 @@ export class NavMenuComponent {
   public usuarioLogado(): boolean {
 
     return this.usuarioServico.usuario_autenticado();    
+  }
+
+  public usuarioAdministrador(): boolean {
+
+    return this.usuarioServico.usuario_administrador();
   }
 
   sair() {
