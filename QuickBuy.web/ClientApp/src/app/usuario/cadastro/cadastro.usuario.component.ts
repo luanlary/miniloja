@@ -19,7 +19,7 @@ export class CadastroUsuarioComponent implements OnInit {
   public returnUrl: string;
   public mensagem: string
   public confirmasenha: string;
-  private ativarSpinner: boolean;
+  public ativarSpinner: boolean;
   public usuarioCadastrado: boolean;
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute,
